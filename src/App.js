@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import List from "./components/list";
+import AddOwnerForm from "./components/add-owner-form";
+import { getOwners } from "./api-client/dogs-api";
+import "./App.css";
 
 function App() {
+  const [owners, setOwners] = useState();
+
+  const refreshList = () => {
+    getOwners().then(setOwners);
+  };
+  useEffect(refreshList, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Dog App</h1>
       </header>
+      <main>
+        <h2>Owners</h2>
+
+        <AddOwnerForm onSuccess={refreshList} />
+
+        <List owners={owners} />
+      </main>
+      <footer>
+        <a href="https://github.com/vegetabill/dogs-react-app">GitHub Source</a>
+      </footer>
     </div>
   );
 }
