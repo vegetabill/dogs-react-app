@@ -1,7 +1,7 @@
 import React from "react";
 import Owner from "./owner";
 
-function List({ owners }) {
+function List({ owners, afterDelete }) {
   if (!owners) {
     return null;
   }
@@ -11,7 +11,7 @@ function List({ owners }) {
   return (
     <ul className="owners">
       {owners.map(owner => (
-        <Owner key={owner.login} {...owner} />
+        <Owner key={owner.login} afterDelete={afterDelete} {...owner} />
       ))}
     </ul>
   );

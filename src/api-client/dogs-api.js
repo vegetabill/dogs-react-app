@@ -29,6 +29,10 @@ function get(path) {
   return doFetch(path);
 }
 
+function httpDelete(path) {
+  return doFetch(path, { method: "DELETE" });
+}
+
 function put(path, body, options = {}) {
   const opts = merge(
     {
@@ -49,4 +53,8 @@ export function getOwners() {
 
 export function createOwner(attrs) {
   return put(`/owners/${attrs.login}`, attrs);
+}
+
+export function deleteOwner(login) {
+  return httpDelete(`/owners/${login}`);
 }

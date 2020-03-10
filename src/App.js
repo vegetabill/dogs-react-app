@@ -22,7 +22,7 @@ function App() {
 
         <AddOwnerForm onSuccess={refreshList} />
 
-        <List owners={owners} />
+        <List owners={owners} afterDelete={refreshList} />
       </main>
       <footer>
         <a href="https://github.com/vegetabill/dogs-react-app">GitHub Source</a>
