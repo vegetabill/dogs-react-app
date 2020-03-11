@@ -2,6 +2,10 @@
 
 This is a client for the [dogs-api](https://github.com/vegetabill/dogs-api/) Express app. You must clone and set that up first to run this.
 
+### Learning the API
+
+To see the SwaggerUI navigate to `http://localhost:3000/swagger`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

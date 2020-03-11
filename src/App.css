@@ -1,12 +1,11 @@
-body {
-  background-color: DarkSlateGray;
-  color: AliceBlue;
-}
-
 a {
   color: #ccc;
   text-decoration: none;
   border-bottom: 1px dotted #ccc;
+}
+
+body {
+  padding: 1em;
 }
 
 a:hover {
@@ -21,12 +20,6 @@ input {
 .owners {
   font-size: large;
   line-height: 2em;
-}
-
-header,
-footer {
-  background-color: rgb(13, 23, 23);
-  padding: 1em;
 }
 
 header {

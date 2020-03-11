@@ -8,9 +8,13 @@ const DEFAULT_OPTIONS = {
   }
 };
 
+export function buildPath(path) {
+  return `/api${path}`;
+}
+
 function doFetch(path, options = {}) {
   const mergedOpts = merge({}, DEFAULT_OPTIONS, options);
-  return fetch(`${path}?pretty`, mergedOpts).then(resp => {
+  return fetch(`${buildPath(path)}?pretty`, mergedOpts).then(resp => {
     if (resp.ok) {
       return resp.text().then(txt => {
         const contentType = resp.headers.get("content-type");
